@@ -163,7 +163,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 //create tooltip
 var toolTip = d3.tip()
 .attr('class', 'd3-tip')
-.offset([80, -60])
+.offset([110, -60])
 .html(function(d) {
     return (`${d.state}<br>${xLabel} ${styleX(d[chosenXAxis], chosenXAxis)}<br>${yLabel} ${d[chosenYAxis]}%`);
 });
@@ -178,7 +178,7 @@ return circlesGroup;
 }
 
 // Retrieve data from the CSV file and execute everything below
-d3.csv("./assets/data/data.csv").then(function(censusData, err) {
+d3.csv("assets/data/data.csv").then(function(censusData, err) {
   if (err) throw err;
 
   // parse data
@@ -280,7 +280,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData, err) {
 
   var smokesLabel = yLabelsGroup.append("text")
     .classed("aText", true)
-    .classed("active", true)
+    .classed("inactive", true)
     .attr("transform", "rotate(-90)")
     .attr("x", 0)
     .attr("y", 40-margin.left)
@@ -290,7 +290,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData, err) {
     
   var obesityLabel = yLabelsGroup.append("text")
     .classed("aText", true)
-    .classed("active", true)
+    .classed("inactive", true)
     .attr("transform", "rotate(-90)")
     .attr("x", 0)
     .attr("y", 20-margin.left)
